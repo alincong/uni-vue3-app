@@ -21,7 +21,3 @@ export function getpagescroll() {
     y: y,
   };
 }
-
-export default {
-	getpagescroll
-}
