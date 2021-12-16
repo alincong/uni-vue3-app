@@ -1,0 +1,11 @@
+{
+    "id": "lipan-tabs",
+    "name": "【uniapp小程序】非常灵活的tab切换兼容vue2和vue3(仿iview)",
+    "version": "1.0.1",
+    "description": "我在做项目的过程中用到了tab切换，本想着去插件市场找一个直接现用，后面发现找到的tab切换并不是我想要的那种使用方式，于是我结合了iview中Tab切换的方式打造了这个插件。",
+    "keywords": [
+        "tab切换",
+        "切换",
+        "小程序"
+    ]
+}
