@@ -1,5 +1,6 @@
 <template>
 	<view id="integral-mall">
+		<!-- <tab-list v-show='tabFixed' :tabTitle='tabTitle' @tabItemClick='tabItemClick' ref='tabCopy' class='tabFixed'/> -->
 		<scroll-view scroll-y @scroll="scrollPage" style="height: 100%;">
 			<view class="info">
 				<view class="fz12">可用积分</view>
@@ -9,48 +10,46 @@
 					<view open-type="navigate" class="fz12" style="width: 120rpx; margin-left: 20rpx;">兑换记录</view>
 				</view>
 			</view>
-			<!-- tabs -->
-			<tab :index="current" :animation="true" tabPadding="40" @changeIndex="changeIndex" ref="tab" :class="tab">
-				<tab-pane v-for="item in tabTitle" :label="item.title"></tab-pane>
-			</tab>
+			<tab-list :tabTitle='tabTitle' @tabItemClick='tabItemClick' ref='tab' class='tabs'/>
 		</scroll-view>
 	</view>
 </template>
 
 
 <script>
-	import tab from '/components/third-party/lipan-tabs/lipan-tabs.vue'
-	import tabPane from '/components/third-party/lipan-tabs/lipan-tab-pane.vue'
-	import { getpagescroll } from '/utils/fn/equipment.js'
+  import tabList from '/components/public/tab-list.vue'
 	import { defineComponent, reactive, ref, toRefs, onMounted } from 'vue';
 	export default defineComponent({
 		components:{
-			tab,
-			tabPane
+			tabList
 		},
 		setup(){
-			const current = ref(0)
 			const tabTitle = reactive([
 				{title:'Go会员专区'},
 				{title:'星球会员专区'},
 			])
-			const changeIndex = (index) => {
-        console.log(index)
+			
+			const tabItemClick = (index) => {
+				console.log(index)
 			}
 			
-			const tabFixed = ref(false)
 			const tab = ref(null)
+			const tabFixed = ref(false)
 			const scrollPage = (e) => {
 				const scrollTop = ref(e.detail.scrollTop)
+				console.log(scrollTop.value)
 				tabFixed.value = scrollTop.value > tab.value.$el.offsetTop ? true : false
 			}
 			
 			return {
-				current,
-				tabTitle,
-				changeIndex,
-				tabFixed,
 				tab,
+				tabFixed,
+				
+				// 数组、对象数据
+				tabTitle,
+				
+				// 方法
+				tabItemClick,
 				scrollPage,
 			}
 		}
@@ -63,8 +62,8 @@
 		height: 100%;
 	}
 	#integral-mall{
-		overflow: auto;
-		height: 100%;
+		height: 100vh;
+		position: relative;
 		.info{
 			width: 100%;
 			height: 360rpx;
@@ -82,16 +81,13 @@
 			}
 		}
     // tabs区域
-		.tab{
+		.tabs{
 			margin-top: 20rpx;
 			background-color: #fff;
 		}
-		// .fixed{
-		// 	position: sticky;
-  //     top: 0rpx;
-		// 	z-index: 9;
-		// 	margin-top: 20rpx;
-		// 	background-color: #fff;
-		// }
+	}
+	.tabFixed {
+	  position: relative;
+	  z-index: 9;
 	}
 </style>
