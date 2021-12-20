@@ -21,3 +21,27 @@ export function getpagescroll() {
     y: y,
   };
 }
+
+/*
+	获取网页宽高
+	//用法：let{width,height}=getScreen();
+	如：拿到网页的高
+	let bodyHeight=getScreen().height;
+	* */
+ export function getScreen() {
+	let width, height;
+	if (window.innerWidth) {
+		width = window.innerWidth;
+		height = window.innerHeight;
+	} else if (document.compatMode === "BackCompat") {
+		width = document.body.clientWidth;
+		height = document.body.clientHeight;
+	} else {
+		width = document.documentElement.clientWidth;
+		height = document.documentElement.clientHeight;
+	}
+	return {
+		width: width,
+		height: height,
+	};
+}
