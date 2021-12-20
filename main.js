@@ -6,12 +6,10 @@ import App from './App.vue'
 **主要解决页面滑动性能
 */
 import 'default-passive-events'
-import api from '/api'
  
 
 export function createApp() {
   const app = createSSRApp(App)
-	app.config.globalProperties.$api = api
   return {
     app
   }

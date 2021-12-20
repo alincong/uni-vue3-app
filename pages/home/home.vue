@@ -2,6 +2,9 @@
 	<view id="home">
 		<SwiperValue :swiperData="homeSwiper"/>
 		<HomeContent />
+		<view class="test">
+			
+		</view>
 	</view>
 </template>
 

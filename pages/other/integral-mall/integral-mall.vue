@@ -1,6 +1,5 @@
 <template>
 	<view id="integral-mall">
-		<!-- <tab-list v-show='tabFixed' :tabTitle='tabTitle' @tabItemClick='tabItemClick' ref='tabCopy' class='tabFixed'/> -->
 		<scroll-view scroll-y @scroll="scrollPage" style="height: 100%;">
 			<view class="info">
 				<view class="fz12">可用积分</view>
@@ -10,7 +9,7 @@
 					<view open-type="navigate" class="fz12" style="width: 120rpx; margin-left: 20rpx;">兑换记录</view>
 				</view>
 			</view>
-			<tab-list :current='current' :tabTitle='tabTitle' :tabGoData='tabGoData' :tabStarData='tabStarData' @tabItemClick='tabItemClick' ref='tab' class='tabs'/>
+			<tab-list :current='current' :tabTitle='tabTitle' :tabGoData='tabGoData' :tabStarData='tabStarData' @tabItemClick='tabItemClick' class='tabs'/>
 		</scroll-view>
 	</view>
 </template>
@@ -18,7 +17,7 @@
 
 <script>
   import tabList from '/components/public/tab-list.vue'
-	import * as api from '../api/index.js'
+	import * as api from '/api/index.js'
 	import { defineComponent, reactive, ref, toRefs } from 'vue';
 	export default defineComponent({
 		components:{
@@ -34,26 +33,17 @@
 			const tabStarData = api.integralMall.filter(item => item.state !== 'Go')
 			console.log(tabGoData,tabStarData)
 			
-			
 			const current = ref(0)
 			const tabItemClick = (index) => {
 				current.value = index
 			}
 			
-			
-			
-			const tab = ref(null)
-			const tabFixed = ref(false)
 			const scrollPage = (e) => {
-				const scrollTop = ref(e.detail.scrollTop)
-				console.log(scrollTop.value)
-				tabFixed.value = scrollTop.value > tab.value.$el.offsetTop ? true : false
+			 console.log(e)
 			}
 			
 			return {
 				current,
-				tab,
-				tabFixed,
 				
 				// 数组、对象数据
 				tabTitle,
