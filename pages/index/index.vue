@@ -21,6 +21,6 @@
 <style lang="scss" scoped>
 	page{
 		max-height: 100%;
-		// overflow: hidden;
+		overflow: hidden;
 	}
 </style>

@@ -17,7 +17,7 @@
 
 <script>
   import tabList from '/components/public/tab-list.vue'
-	import * as api from '/api/index.js'
+	import * as api from '../api/index.js'
 	import { defineComponent, reactive, ref, toRefs } from 'vue';
 	export default defineComponent({
 		components:{
@@ -44,8 +44,6 @@
 			
 			return {
 				current,
-				
-				// 数组、对象数据
 				tabTitle,
 				tabGoData,
 				tabStarData,

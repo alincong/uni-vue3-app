@@ -1,0 +1,15 @@
+export const asideitem = [
+	{name: '喜茶实验室', img: 'https://go.cdn.heytea.com/storage/category/2020/04/23/f77f2e333a34410384c21da48e138599.jpg'},
+	{name: '当季限定', img: 'https://go.cdn.heytea.com/storage/category/2020/05/02/c9d862a735af48d280ab8b21a2315514.jpg'},
+	{name: '人气必喝榜', img: 'https://go.cdn.heytea.com/storage/category/2020/04/23/3b52e3d18fae4290b0a668a776b21645.jpg'},
+	{name: '喜茶制冰', img: 'https://go.cdn.heytea.com/storage/category/2020/04/21/ef7b2a24507a4e20b50355eccc3261db.jpg'},
+	{name: '果茶制冰', img: 'https://go.cdn.heytea.com/storage/category/2020/04/23/ac7a2ff85b6944fe83df06a79cc19834.jpg'},
+	{name: '芝芝茗茶', img: 'https://go.cdn.heytea.com/storage/category/2020/04/21/3de570175dbb4c74a6291e1b6df4eb6a.jpg'},
+	{name: '喜茶咖啡', img: 'https://go.cdn.heytea.com/storage/category/2020/04/23/50609654ded746f28ea60485a7e715b5.jpg'},
+	{name: '热饮推荐', img: 'https://go.cdn.heytea.com/storage/category/2020/04/23/72b2d1e753464b5a837618e24bc857c3.jpg'},
+	{name: '纯茶', img: 'https://go.cdn.heytea.com/storage/category/2020/04/21/43c745f3ead64208830401107c44eef2.jpg'},
+	{name: '加料', img: 'https://go.cdn.heytea.com/storage/category/2020/04/21/19047118303443b09ba73f82c54e4f03.jpg'},
+	{name: '共同抗疫', img: 'https://go.cdn.heytea.com/storage/category/2020/04/21/529845ef52584ca1adca3af88ebf1c66.jpg'},
+	{name: '灵感提示', img: 'https://go.cdn.heytea.com/storage/category/2020/04/21/6d5e68f5b2bd4fa2bb50f94e6ac0a512.jpg'},
+	{name: '波波家族', img: 'https://go.cdn.heytea.com/storage/category/2020/04/21/0dd0e6e55c4b4f119fadda81b0a7b3f8.jpg'},
+]
