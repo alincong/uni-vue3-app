@@ -1,6 +1,6 @@
 <template>
 	<view>
-		<swiper class="swiper-box" :autoplay='true' :interval='3000' indicator-dots circular>
+		<swiper :style="{height: swiperHeight}" :autoplay='true' :interval='3000' indicator-dots circular>
 			<swiper-item v-for="(item,index) in swiperData" :key="index">
 					<image :src="item" mode="widthFix" class="swiper-item"></image>
 			</swiper-item>
@@ -14,18 +14,17 @@
 		props:{
 			swiperData:{
 				type: Array
+			},
+			swiperHeight:{
+				type: String
 			}
 		},
 	});
 </script>
 
 <style lang="scss" scoped>
-	.swiper-box{
+	.swiper-item{
 		width: 100%;
-		height: 600rpx;
-		.swiper-item{
-			width: 100%;
-			height: 100%;
-		}
+		height: 100%;
 	}
 </style>
