@@ -1,19 +1,18 @@
 <template>
 	<view id="index">
-		<!-- 顶部区域 -->
 		<index-top/>
-		<sidebar />
+		<goods-list />
 	</view>
 </template>
 
 <script>
 	import indexTop from './child-module/index-top.vue'
-	import sidebar from './child-module/sidebar.vue'
+	import goodsList from './child-module/goods-list.vue'
 	import { defineComponent, reactive, ref } from 'vue';
 	export default defineComponent({
 		components:{
 			indexTop,
-			sidebar
+			goodsList
 		}
 	})
 </script>

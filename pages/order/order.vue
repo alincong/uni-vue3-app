@@ -1,5 +1,5 @@
 <template>
-	<view class="order">
+	<view id="order">
 		<!-- 联系区域 -->
 		<view class="contact">
 			<view class="contact-box">
@@ -141,7 +141,7 @@
 		overflow: hidden;
 		background-color: #f8f8f8;
 	}
-	.order{
+	#order{
 		/* 联系区域 */
 		.contact{
 			width: 100%;
