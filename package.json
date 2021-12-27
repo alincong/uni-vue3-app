@@ -9,6 +9,7 @@
         "小程序"
     ],
     "dependencies": {
-        "default-passive-events": "^2.0.0"
+        "default-passive-events": "^2.0.0",
+        "mitt": "^3.0.0"
     }
 }

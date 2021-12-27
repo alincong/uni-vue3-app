@@ -1,0 +1,21 @@
+body[data-v-0be17cc6] {
+  height: 100%;
+  overflow: hidden;
+}
+#my[data-v-0be17cc6] {
+  height: 100%;
+}
+#my .ceiling[data-v-0be17cc6] {
+  width: 100%;
+  height: 6.25rem;
+  background-color: skyblue;
+}
+#my .fixed[data-v-0be17cc6] {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9;
+  width: 100%;
+  height: 6.25rem;
+  background-color: skyblue;
+}

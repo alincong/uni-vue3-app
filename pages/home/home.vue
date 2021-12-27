@@ -9,6 +9,7 @@
 	import Swiper from '/components/public/swiper.vue'
 	import HomeContent from './child-module/home-conent.vue'
 	import { defineComponent, reactive, ref } from 'vue';
+	import { getScreenWidth } from '/utils/fn/equipment.js'
 	export default defineComponent({
 		components: {
 			Swiper,
@@ -24,6 +25,7 @@
 				"https://go.cdn.heytea.com/storage/ad/2020/04/27/db60b797c1cd4afabe9666e7df958ffd.jpg",
 				"https://go.cdn.heytea.com/storage/ad/2020/05/21/4ba53dda599345bdaf28a08420dd1b6f.jpg"
 			])
+			
 	    return {
 			  homeSwiper,
 				swiperHeight

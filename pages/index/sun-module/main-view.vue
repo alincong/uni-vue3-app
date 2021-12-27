@@ -1,5 +1,5 @@
 <template>
-	<scroll-view scroll-y :style="{height: mainHeight + 'px'}">
+	<scroll-view scroll-y :scroll-top="scrollTop" @scroll='mainScroll' scroll-with-animation='true' :style="{height: mainHeight + 'px'}">
 		<!-- 轮播图区域 -->
 		<view class="swiper-box">
 			<view v-for="item in goodsSwiper">
@@ -11,7 +11,7 @@
 			<view class="goods-type">
 				<view class="goods-title" :ref='el => {goodsTitle[index] = el}'>{{whole.name}}</view>
 				<view class="goods-item" v-for="(item,i) in whole.products">
-					<view class="goods-image">
+					<view class="goods-image" @click="goodsClick">
 						<view v-for="(jpg,n) in item.images">
 							<image v-if="!n" :src="jpg.url" mode="widthFix"></image>
 						</view>
@@ -22,19 +22,25 @@
 							<text v-for="(lab,l) in item.labels" class="label-name">{{lab.name}}</text>
 						</view>
 						<view class="description">{{item.description}}</view>
-						<view class="price">￥{{item.price}}</view>
+						<view class="specifications">
+							<view class="price">￥{{item.price}}</view>
+							<image src="/static/images/common/round_add_normal.png" mode="widthFix"></image>
+						</view>
 					</view>
 				</view>
 			</view>
 		</view>
 	</scroll-view>
+	<GoodsInfo ref='goodsInfo'/>
 </template>
 
 <script>
 	import { defineComponent, reactive, ref, onMounted, nextTick } from 'vue';
 	import Swiper from '/components/public/swiper.vue'
+	import GoodsInfo from './goodsInfo.vue'
+	import emitter from '/utils/mitt/index.js'
 	export  default  defineComponent({
-		components:{Swiper},
+		components:{Swiper, GoodsInfo},
 		props: {
 			mainHeight: {
 				type: Number
@@ -42,14 +48,13 @@
 			goodsData: {
 				type: Array,
 				default: () => []
+			},
+			scrollTop: {
+				type: Number,
+				default: 0
 			}
 		},
 		setup(){
-			onMounted(() => {
-				goodsTitle.value.forEach((item) => {
-					goodsTitleOffsetTop.push(item.$el.offsetTop)
-				})
-			})
 			// 轮播提数据
 			const goodsSwiper = reactive([
 				[
@@ -66,19 +71,49 @@
 				]
 			])
 			
+			// 生命周期
+			onMounted(() => {
+				goodsTitle.value.forEach((item) => {
+					goodsTitleOffsetTop.push(item.$el.offsetTop)
+				})
+			})
+			
+			// ----------------------获取保存goodsTitle的offsetTop----------------------
 			const goodsTitle = ref([])
 			const goodsTitleOffsetTop = reactive([])
+			
+			// ----------------------视图滚动，抛出事件----------------------
+			const mainScroll = (e) => {
+				emitter.emit('mainScroll', e.detail.scrollTop)
+			}
+			
+			// ----------------------打开商品弹窗----------------------
+			const goodsInfo = ref(null)
+			const goodsClick = () => {
+				goodsInfo.value.showModal()
+			}
 			
 			return {
 				goodsSwiper,
 				goodsTitle,
-				goodsTitleOffsetTop
+				goodsTitleOffsetTop,
+				goodsInfo,
+				
+				// 方法
+				mainScroll,
+				goodsClick
 			}
 		}
 	})
 </script>
 
 <style lang="scss" scoped>
+	.goods-box{
+		padding: 0 20rpx
+	}
+	.swiper-box{
+		padding: 0 20rpx;
+	}
 	.swiper-item{
 		margin-bottom: 20rpx;
 	}
@@ -155,10 +190,19 @@
 					-webkit-box-orient: vertical; 
 					overflow: hidden;
 				}
-				.price{
-					font-size: 18px;
-					color: #343434;
-					font-weight: bold;
+				.specifications{
+					width: 100%;
+					display: flex;
+					justify-content: space-between;
+					.price{
+						font-size: 18px;
+						color: #343434;
+						font-weight: bold;
+					}
+					image{
+						width: 44rpx;
+						height: 44rpx;
+					}
 				}
 			}
 		}

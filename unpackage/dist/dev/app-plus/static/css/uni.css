@@ -1,0 +1,50 @@
+/* 字体大小 */
+.fz12{
+	font-size: 12px;
+}
+.fz14{
+	font-size: 14px;
+}
+.fz18{
+	font-size: 18px;
+}
+.fz120{
+	font-size: 20px;
+}
+.fz22{
+	font-size: 22px;
+}
+.fz32{
+	font-size: 32px;
+}
+.fz36{
+	font-size: 36px;
+}
+/* 字体加粗 */
+.fw-b{
+	font-weight: bold;
+}
+.fw-bd{
+	font-weight: bolder;
+}
+/* 字体颜色 */
+.color-666{
+	color: #666;
+}
+.color-999{
+	color: #999;
+}
+.color-fff{
+	color: #fff;
+}
+.color-eee{
+	color: #eee;
+}
+/* 背景颜色 */
+.bg-ff{
+	background-color: #fff;
+}
+.describe{
+	font-size: 12px;
+	color: #999;
+}

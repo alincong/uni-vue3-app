@@ -1,0 +1,92 @@
+.tab[data-v-ea11b5d6] {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+.tab .tab-bar[data-v-ea11b5d6] {
+  border-bottom: 0.03125rem solid #ccc;
+  height: 2.8125rem;
+  white-space: nowrap;
+  margin-bottom: 0.9375rem;
+}
+.tab .tab-bar-item[data-v-ea11b5d6] {
+  display: inline-block;
+  height: 2.8125rem;
+  line-height: 2.8125rem;
+  font-size: 0.9375rem;
+  color: #222;
+  text-align: center;
+}
+.tab .tab-bar-item.active[data-v-ea11b5d6] {
+  position: relative;
+  color: #007AFF;
+}
+.tab .tab-bar-item.active[data-v-ea11b5d6]::after {
+  content: "";
+  width: 2.5rem;
+  height: 0.0625rem;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #007AFF;
+}
+.tab .tab-cont[data-v-ea11b5d6] {
+  display: flex;
+}
+
+.tab-pane[data-v-1c9db3b7] {
+		width: 23.4375rem;
+		flex-shrink: 0;
+}
+
+.tab-list[data-v-4b6b0251] {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.tab-list .tab-item[data-v-4b6b0251] {
+  width: 50%;
+  height: 12.5rem;
+}
+.tab-list .tab-item uni-image[data-v-4b6b0251] {
+  width: 11.6875rem;
+  height: 9.375rem;
+}
+.tab-list .tab-item .info[data-v-4b6b0251] {
+  padding: 0 0.625rem;
+  box-sizing: border-box;
+}
+.tab-list .tab-item .info .score[data-v-4b6b0251] {
+  margin-top: 0.3125rem;
+}
+.tab-list .tab-item .info .score .value[data-v-4b6b0251] {
+  color: #DBA871;
+}
+body[data-v-133490f3] {
+  height: 100%;
+}
+#integral-mall[data-v-133490f3] {
+  height: 100vh;
+  position: relative;
+}
+#integral-mall .info[data-v-133490f3] {
+  width: 100%;
+  height: 11.25rem;
+  padding: 1.25rem;
+  box-sizing: border-box;
+  background: url("../../../static/images/mall/me_img_banner_mall.png") no-repeat;
+  background-size: 100% 100%;
+  position: relative;
+}
+#integral-mall .info .integral-details[data-v-133490f3] {
+  position: absolute;
+  bottom: 1.25rem;
+  display: flex;
+}
+#integral-mall .tabs[data-v-133490f3] {
+  margin-top: 0.625rem;
+  background-color: #fff;
+}

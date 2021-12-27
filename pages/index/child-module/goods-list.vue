@@ -2,11 +2,11 @@
 	<view class="sidebar">
 		<!-- 侧边栏 -->
 		<view class="aside" ref='aside'>
-			<tabs-aside :asideHeight='asideHeight' :GoodsListOffsetTop='GoodsListOffsetTop' :asideItem ='asideItem'/>
+			<tabs-aside :asideHeight='asideHeight' :asideData ='asideData' :GoodsListOffsetTop='GoodsListOffsetTop' @asideItemClick='asideItemClick'/>
 		</view>
 		<!-- 商品视图 -->
 		<view class="main" ref='main'>
-			<main-view :mainHeight='mainHeight' :goodsData='goodsData' ref='mainIitem'/>
+			<main-view ref='mainIitem' :mainHeight='mainHeight' :goodsData='goodsData' :scrollTop='scrollTop' />
 		</view>
 	</view>
 </template>
@@ -14,41 +14,49 @@
 <script>
 	import { defineComponent, reactive, ref, onMounted, nextTick } from 'vue';
 	import { getScreen } from '/utils/fn/equipment.js';
-	import { asideItem, goodsData } from '../api/index.js';
-	import tabsAside from '/components/public/tabs-aside.vue'
-	import mainView from '/components/private/main-view.vue'
+	import { asideData, goodsData } from '../api/index.js';
+	import tabsAside from '../sun-module/tabs-aside.vue'
+	import mainView from '../sun-module/main-view.vue'
 	export default defineComponent({
 		components: {tabsAside,mainView},
 		setup(){
 			// 生命周期
-			const flay = ref(false)
 			onMounted(() => {
 				asideHeight.value = (getScreen().height - aside.value.$el.offsetTop)
 				mainHeight.value = (getScreen().height - main.value.$el.offsetTop)
-				GoodsListOffsetTop.value = mainIitem.value.goodsTitleOffsetTop 
+				GoodsListOffsetTop.value = mainIitem.value.goodsTitleOffsetTop
 			})
 			
-			// 滚动区域高度
+			// --------------------------------滚动区域高度--------------------------------
 			const aside = ref(null)
 			const main = ref(null)
-			const mainIitem = ref(null)
 			const asideHeight = ref(0)
 			const mainHeight = ref(0)
 			
+			// --------------------------------楼层效果--------------------------------
+			const mainIitem = ref(null)
 			// 保存main-view每个商品列表的高度
 			let GoodsListOffsetTop = ref([]) //使用const定义，报错 Assignment to constant variable, 使用reactive赋值不进去
+			const scrollTop = ref(0)
+
+		  const asideItemClick = (index) => {
+				scrollTop.value = GoodsListOffsetTop.value[index] + 1
+			}
 			
 			return {
-				flay,
 				aside,
 				main,
-				mainIitem,
 				asideHeight,
 				mainHeight,
+				mainIitem,
 				GoodsListOffsetTop,
+				scrollTop,
+				
+				//方法
+				asideItemClick,
 				
 				// api数据
-				asideItem,
+				asideData,
 				goodsData
 			}
 		}
@@ -66,7 +74,6 @@
 		}
 		.main{
 			flex: 1;
-			padding: 0 20rpx 130rpx;
 			box-sizing: border-box;
 		}
 	}

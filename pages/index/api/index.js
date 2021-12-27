@@ -1,5 +1,5 @@
 import { reactive } from "vue"
-export const asideItem = reactive([
+export const asideData = reactive([
 	{name: '喜茶实验室', img: 'https://go.cdn.heytea.com/storage/category/2020/04/23/f77f2e333a34410384c21da48e138599.jpg'},
 	{name: '当季限定', img: 'https://go.cdn.heytea.com/storage/category/2020/05/02/c9d862a735af48d280ab8b21a2315514.jpg'},
 	{name: '人气必喝榜', img: 'https://go.cdn.heytea.com/storage/category/2020/04/23/3b52e3d18fae4290b0a668a776b21645.jpg'},
